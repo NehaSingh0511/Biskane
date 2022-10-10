@@ -29,7 +29,7 @@ public class Biskane_userLogin {
 		String actualtitle= driver.getTitle();
 		System.out.println(actualtitle);
 		String expectedtitle = "NATIVE AMERICAN AND INDIGENOUS ARTS";
-	    Assert.assertEquals(actualtitle, expectedtitle);
+	    org.junit.Assert.assertEquals(actualtitle, expectedtitle);
 	   
 	}
 
@@ -66,7 +66,10 @@ public class Biskane_userLogin {
 				
 				
   }
+	
+	
 }
+
 
 
 
