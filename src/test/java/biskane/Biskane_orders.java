@@ -1,5 +1,6 @@
 package biskane;
 
+import java.io.File;
 import java.time.Duration;
 
 import org.junit.Assert;
@@ -177,6 +178,45 @@ public class Biskane_orders {
 		 receivedorder2.isDisplayed();
 		 Assert.assertTrue(true);
 	    }
+	 
+	 
+	 @And("^I click on Export Purchase List$")
+	    public void i_click_on_export_purchase_list() {
+		 driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+			driver.findElement(By.xpath("//body/app-root[1]/app-consumer-orders[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/button[1]")).click();
+		
+	 }
+	 
+	 
+	 @Then("^File should be downloaded$")
+	    public void file_should_be_downloaded() {
+	 String fileName = "orders";
+     //paste your directory path below
+     //eg: C:\\Users\\username\\Downloads
+     String dirPath = "C:\\Users\\kaush\\Downloads"; 
+     File dir = new File(dirPath);
+     File[] files = dir.listFiles();
+     if (files.length == 0 || files == null) 
+     {
+         System.out.println("The directory is empty");
+        Assert.assertTrue(false);
+     } 
+     else 
+     {
+         for (File listFile : files) 
+         {
+             if (listFile.getName().contains(fileName)) 
+             {
+                 System.out.println(fileName + " is present");
+                 break;
+             }
+             Assert.assertTrue(true);
+         
+  
+     }
+	
+     }
+	 }
 }
 	 
 	 
