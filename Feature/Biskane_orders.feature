@@ -76,3 +76,8 @@ Feature: To Test orders Functionality
     When I select No radio button
     And I click on Go button
     Then I see all non received orders
+    
+    Scenario: To Check orders page export purchase list button
+    When I click on Orders button and navigate on orders
+    And I click on Export Purchase List
+    Then File should be downloaded
